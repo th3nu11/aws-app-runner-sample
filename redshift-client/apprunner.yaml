@@ -10,3 +10,13 @@ run:
   network:
     port: 8000
     env: APP_PORT
+  env:
+    - name: REGION
+      value: "eu-west-1"
+    - name: DATABASE
+      value: "dev"
+    - name: WORKGROUP_NAME
+      value: "redshiftworkgroupname"
+    - name: SECRET_ARN
+      value: "arn:aws:secretsmanager:eu-west-1:..."
+
