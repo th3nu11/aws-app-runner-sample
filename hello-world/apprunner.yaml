@@ -5,7 +5,7 @@ build:
     build:
       - npm install --production
 run:
-  runtime-version: 18.16.1
+  runtime-version: 18.19.0
   command: node index.js
   network:
     port: 8000
