@@ -9,8 +9,7 @@ const {
 const {sleep} = require("./utils");
 
 function getClient(redshiftConf) {
-  const client = new RedshiftDataClient({region: redshiftConf.region});
-  return client;
+  return new RedshiftDataClient({region: redshiftConf.region});
 }
 
 async function executeQuery(query, redshiftConf) {
@@ -59,7 +58,7 @@ async function executeQueryAndGetResult(query, redshiftConf) {
     } else if (retries++ > maxRetries) {
       throw new Error('Query did not finish in time');
     } else {
-      await sleep(timeoutMs)
+      await sleep(timeoutMs * retries);
     }
   }
   return getQueryData(queryResult.Id, redshiftConf);
